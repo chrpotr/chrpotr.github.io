@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ec">
   {% seo %}
   {% feed_meta %}
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
-<body>
+<body{% if page.url == "/" %} class="home"{% endif %}>
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
-    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-name" href="{{ '/' | relative_url }}"><span class="site-mark" aria-hidden="true">cp</span><span>{{ site.title | escape }}</span></a>
     <nav aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Articles</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
@@ -20,9 +21,10 @@
       <a href="https://github.com/chrpotr">GitHub</a>
     </nav>
   </header>
-  <main id="content">{{ content }}</main>
+  <main id="content" tabindex="-1">{{ content }}</main>
   <footer class="site-footer">
-    {{ site.title | escape }} · <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a>
+    <a class="footer-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS <span aria-hidden="true">↗</span></a>
   </footer>
 </body>
 </html>

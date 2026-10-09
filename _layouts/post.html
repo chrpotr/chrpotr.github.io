@@ -3,9 +3,10 @@ layout: default
 ---
 <article class="post">
   <header class="post-header">
-    <a class="back-link" href="{{ '/' | relative_url }}">← All articles</a>
+    <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a>
     <h1>{{ page.title | escape }}</h1>
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+    <div class="post-meta"><span>{{ site.author.name | escape }}</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></div>
   </header>
   <div class="prose">{{ content }}</div>
+  <footer class="post-end"><a href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a><a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS <span aria-hidden="true">↗</span></a></footer>
 </article>
