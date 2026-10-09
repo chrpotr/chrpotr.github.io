@@ -3,15 +3,14 @@ description: Articles by Chris Potter
 url: "https://chrpotr.github.io"
 baseurl: ""
 lang: en
-author: Chris Potter
+author:
+  name: Chris Potter
 markdown: kramdown
 permalink: /articles/:title/
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
-twitter:
-  card: summary_large_image
 exclude:
   - README.md
   - ARTICLE_TEMPLATE.md
