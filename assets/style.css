@@ -7,8 +7,9 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 .site-header, main, .site-footer { width: min(760px, calc(100% - 48px)); margin-inline: auto; }
 .site-header { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; padding-block: 30px; border-bottom: 1px solid var(--line); }
 .site-name { color: var(--ink); font-weight: 700; text-decoration: none; }
-nav { display: flex; gap: 24px; font-size: .92rem; }
+nav { display: flex; flex-wrap: wrap; gap: 24px; font-size: .92rem; }
 nav a { color: var(--muted); text-decoration: none; }
+nav a[aria-current="page"] { color: var(--accent); text-decoration: underline; }
 main { min-height: 58vh; padding-block: 56px 72px; }
 h1, h2, h3 { line-height: 1.2; letter-spacing: -.03em; color: var(--ink); }
 h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; }

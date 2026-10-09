@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {% seo %}
+  {% feed_meta %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
 <body>
@@ -13,11 +14,15 @@
   <header class="site-header">
     <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
     <nav aria-label="Main navigation">
-      <a href="{{ '/' | relative_url }}">Articles</a>
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Articles</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
       <a href="https://github.com/chrpotr">GitHub</a>
     </nav>
   </header>
   <main id="content">{{ content }}</main>
-  <footer class="site-footer">{{ site.title | escape }}</footer>
+  <footer class="site-footer">
+    {{ site.title | escape }} · <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a>
+  </footer>
 </body>
 </html>

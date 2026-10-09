@@ -33,8 +33,17 @@ Add public-ready images to `assets/images/`, then use Markdown such as `![Descri
 
 - **Title and description:** `_config.yml`
 - **Home page:** `index.html`
+- **About page:** `about.md`
 - **Article layout:** `_layouts/post.html`
 - **Colors and typography:** `assets/style.css`
 - **Publishing:** Settings → Pages → Deploy from a branch → `main` → `/(root)`
 
 `README.md` and `ARTICLE_TEMPLATE.md` are excluded from the generated blog. No example article is published.
+
+## Following and sharing
+
+- Readers can subscribe in an RSS reader using `https://chrpotr.github.io/feed.xml`. This is an Atom feed, supported by common RSS readers; it updates automatically when articles are published.
+- A sitemap is generated at `https://chrpotr.github.io/sitemap.xml`.
+- Every page has a title, description, canonical URL, and social-sharing metadata. Articles use their own title and excerpt, with the site-wide preview image at `assets/images/social-card.png` (1200 × 630 pixels).
+- To use an article-specific preview image, upload a public-ready PNG or JPEG and add `image: /assets/images/your-image.jpg` to that article's front matter. Use a 1200 × 630 image for a consistent preview; optionally add `description` to override the excerpt in sharing metadata.
+- The favicon lives at `assets/favicon.svg`, with a PNG fallback at `assets/favicon-32.png`.
