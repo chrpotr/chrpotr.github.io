@@ -47,7 +47,7 @@ h2, h3 { line-height: 1.25; }
 .section-heading h2 { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin: 0; }
 .section-heading a { font-size: .78rem; }
 .empty-state { display: flex; align-items: center; gap: 26px; padding: 40px 0 6px; }
-.empty-mark { color: var(--green); font-family: Georgia, serif; font-size: 3.5rem; line-height: 1; }
+.empty-mark { width: 46px; height: 46px; flex: none; color: var(--green); }
 .empty-state p { font-family: var(--serif); font-size: 1.5rem; line-height: 1.4; margin: 0 0 8px; }
 .empty-state .text-link { color: var(--muted); }
 .article-preview { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; padding-block: 35px 39px; border-bottom: 1px solid var(--line); }
@@ -100,7 +100,7 @@ time { color: var(--muted); font-size: .82rem; }
   nav { gap: 20px; }
   main { padding-block: 54px 72px; }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .site-header, main, .site-footer { width: calc(100% - 40px); }
   .site-header { flex-wrap: wrap; gap: 16px; padding-block: 21px 12px; }
   .site-name { font-size: 1.35rem; }
@@ -114,7 +114,7 @@ time { color: var(--muted); font-size: .82rem; }
   .hero-art { width: 180px; justify-self: end; margin-top: -8px; padding: 9px; }
   .section-heading { padding-block: 18px; }
   .empty-state { align-items: flex-start; gap: 18px; padding-top: 29px; }
-  .empty-mark { font-size: 2.7rem; }
+  .empty-mark { width: 35px; height: 35px; }
   .empty-state p { font-size: 1.3rem; }
   .article-preview { grid-template-columns: 1fr; gap: 10px; padding-block: 25px 30px; }
   .article-date { padding: 0; }

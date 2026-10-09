@@ -8,7 +8,7 @@
   {% feed_meta %}
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32.png' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body{% if page.url == "/" %} class="home"{% endif %}>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -24,7 +24,7 @@
   <main id="content" tabindex="-1">{{ content }}</main>
   <footer class="site-footer">
     <a class="footer-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-    <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS <span aria-hidden="true">↗</span></a>
+    <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS <span aria-hidden="true">→</span></a>
   </footer>
 </body>
 </html>
