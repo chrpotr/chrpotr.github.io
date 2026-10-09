@@ -3,7 +3,7 @@ layout: default
 ---
 <article class="post">
   {% assign post_image = page.image.path | default: page.image %}
-  {% if post_image and post_image != '/assets/images/social-card.png' %}
+  {% if post_image and post_image != empty and post_image != '/assets/images/social-card.png' %}
   <img class="post-cover" src="{{ post_image | relative_url }}" alt="{{ page.image.alt | default: '' | escape }}" width="1200" height="630">
   {% endif %}
   <div class="post-inner">

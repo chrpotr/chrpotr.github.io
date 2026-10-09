@@ -7,7 +7,7 @@ layout: default
       <h1 id="home-title">Hi, I'm Chris.</h1>
       <p>Technical marketer.</p>
       <p>Technology, maps, privacy, church, my family.</p>
-      <div class="social-links" aria-label="Chris Potter on the web">
+      <div class="social-links" role="group" aria-label="Chris Potter on the web">
         <a href="https://bsky.app/profile/chrpotr.com">Bluesky</a>
         <a href="https://github.com/chrpotr">GitHub</a>
         <a href="https://www.linkedin.com/in/chrpotr/">LinkedIn</a>
@@ -30,7 +30,7 @@ layout: default
     {% assign card_image = post.image.path | default: post.image %}
     <article class="article-preview">
       <a class="article-cover" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
-        {% if card_image and card_image != '/assets/images/social-card.png' %}
+        {% if card_image and card_image != empty and card_image != '/assets/images/social-card.png' %}
         <img src="{{ card_image | relative_url }}" alt="" loading="lazy" width="640" height="400">
         {% else %}
         <span class="cover-monogram">CP</span>
