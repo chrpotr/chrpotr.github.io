@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#dceafe">
+  <meta name="theme-color" content="#f4f0e7">
   {% seo %}
   {% feed_meta %}
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
@@ -12,25 +12,26 @@
 </head>
 <body{% if page.url == "/" %} class="home"{% endif %}>
   <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-header">
-    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-    <nav aria-label="Main navigation">
-      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Articles</a>
-      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-      <a href="https://github.com/chrpotr">GitHub</a>
-    </nav>
-  </header>
-  <main id="content" tabindex="-1">{{ content }}</main>
-  <footer class="site-footer">
-    <h2>Follow me</h2>
-    <div class="social-links" role="group" aria-label="Chris Potter on the web">
-      <a href="https://bsky.app/profile/chrpotr.com">Bluesky</a>
-      <a href="https://github.com/chrpotr">GitHub</a>
-      <a href="https://www.linkedin.com/in/chrpotr/">LinkedIn</a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="site-name" aria-label="{{ site.title | escape }}" href="{{ '/' | relative_url }}">{{ site.title | escape | replace_first: ' ', '<br>' }}<span aria-hidden="true">/</span></a>
+      <p class="index-label">Index</p>
+      <nav aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}><span aria-hidden="true">01</span>Articles</a>
+        <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}><span aria-hidden="true">02</span>About</a>
+        <a href="{{ '/feed.xml' | relative_url }}"><span aria-hidden="true">03</span>RSS</a>
+      </nav>
+      <div class="elsewhere" role="group" aria-label="Chris Potter on the web">
+        <p class="index-label">Elsewhere</p>
+        <a href="https://github.com/chrpotr">GitHub</a>
+        <a href="https://bsky.app/profile/chrpotr.com">Bluesky</a>
+        <a href="https://www.linkedin.com/in/chrpotr/">LinkedIn</a>
+      </div>
+    </header>
+    <div class="site-body">
+      <main id="content" tabindex="-1">{{ content }}</main>
+      <footer class="site-footer"><span>{{ site.title | escape }}</span><a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a></footer>
     </div>
-    <p>{{ site.title | escape }}</p>
-  </footer>
+  </div>
 </body>
 </html>

@@ -1,52 +1,42 @@
 ---
 layout: default
 ---
-<section class="intro-band" aria-labelledby="home-title">
-  <div class="intro">
-    <div class="intro-copy">
-      <h1 id="home-title">Hi, I'm Chris.</h1>
-      <p>Technical marketer.</p>
-      <p>Technology, maps, privacy, church, my family.</p>
-      <div class="social-links" role="group" aria-label="Chris Potter on the web">
-        <a href="https://bsky.app/profile/chrpotr.com">Bluesky</a>
-        <a href="https://github.com/chrpotr">GitHub</a>
-        <a href="https://www.linkedin.com/in/chrpotr/">LinkedIn</a>
-        <a href="{{ '/about/' | relative_url }}">More about me</a>
-      </div>
-      <div class="subscribe-panel">
-        <h2>Subscribe via RSS</h2>
-        <p>Follow new articles in your RSS reader.</p>
-        <a class="button" href="{{ '/feed.xml' | relative_url }}">Open the feed</a>
-      </div>
-    </div>
-    <div class="portrait-frame" aria-hidden="true"><div class="portrait-placeholder">CP</div></div>
+<section class="masthead" aria-labelledby="home-title">
+  <p class="section-kicker">Articles by Chris Potter</p>
+  <h1 id="home-title">Articles</h1>
+  <div class="contour" aria-hidden="true">
+    <svg viewBox="0 0 250 160" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <defs><pattern id="paper-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="#d9cdbf" stroke-width=".7"/></pattern><clipPath id="contour-window"><path d="M0 0H250V160H0Z"/></clipPath></defs>
+      <path d="M0 0H250V160H0Z" fill="url(#paper-grid)"/>
+      <g clip-path="url(#contour-window)" stroke="#aa624d" stroke-width=".85">
+        <path d="M-30 162C-4 40 62 99 94 58S151-17 229 8S297 66 266 120"/>
+        <path d="M-14 164C12 57 69 113 106 70S156 1 220 24S276 70 255 124"/>
+        <path d="M4 170C23 76 80 125 119 81S160 18 216 41S257 80 243 122"/>
+        <path d="M23 173C38 95 91 137 132 94S164 36 209 58S238 89 230 124"/>
+        <path d="M44 178C55 116 102 150 145 107S168 54 202 75S220 100 217 127"/>
+        <path d="M68 181C73 135 115 164 159 121S174 73 195 91S205 112 205 132"/>
+        <path d="M99 182C109 157 128 180 171 138S180 96 189 109S192 124 192 139"/>
+      </g>
+      <path d="M230 12V28M222 20H238" stroke="#9d422d" stroke-width="1.2"/>
+    </svg>
   </div>
 </section>
+<section class="introduction" aria-labelledby="hello-title">
+  <div class="intro-title"><span class="margin-note">A little about me</span><h2 id="hello-title">Hi, I'm Chris.</h2></div>
+  <div class="intro-copy"><p>Technical marketer.</p><p>Technology, maps, privacy, church, my family.</p><a href="{{ '/about/' | relative_url }}">More about me</a></div>
+</section>
 <section class="writing" aria-labelledby="writing-title">
-  <h2 id="writing-title">Latest articles</h2>
+  <div class="section-heading"><h2 id="writing-title">Latest articles</h2><span class="section-line" aria-hidden="true"></span></div>
   {% if site.posts.size > 0 %}
   <div class="article-list">
     {% for post in site.posts %}
-    {% assign card_image = post.image.path | default: post.image %}
     <article class="article-preview">
-      <a class="article-cover" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
-        {% if card_image and card_image != empty and card_image != '/assets/images/social-card.png' %}
-        <img src="{{ card_image | relative_url }}" alt="" loading="lazy" width="640" height="400">
-        {% else %}
-        <span class="cover-monogram">CP</span>
-        {% endif %}
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-      </a>
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
-      <time class="sr-only" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-      {% if post.excerpt %}<div class="summary">{{ post.excerpt | markdownify }}</div>{% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <div class="article-copy"><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>{% if post.excerpt %}<div class="summary">{{ post.excerpt | markdownify }}</div>{% endif %}<a class="read-link" href="{{ post.url | relative_url }}" aria-label="Read article: {{ post.title | escape }}">Read article</a></div>
     </article>
     {% endfor %}
   </div>
   {% else %}
-  <div class="empty-state">
-    <p>No articles published yet.</p>
-    <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS <span aria-hidden="true">→</span></a>
-  </div>
+  <div class="empty-state"><span class="empty-index" aria-hidden="true">—</span><div><p>No articles published yet.</p><a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a></div></div>
   {% endif %}
 </section>
