@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f4ec">
+  <meta name="theme-color" content="#dceafe">
   {% seo %}
   {% feed_meta %}
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
@@ -13,7 +13,7 @@
 <body{% if page.url == "/" %} class="home"{% endif %}>
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
-    <a class="site-name" href="{{ '/' | relative_url }}"><span class="site-mark" aria-hidden="true">cp</span><span>{{ site.title | escape }}</span></a>
+    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
     <nav aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Articles</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
@@ -23,8 +23,14 @@
   </header>
   <main id="content" tabindex="-1">{{ content }}</main>
   <footer class="site-footer">
-    <a class="footer-name" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-    <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS <span aria-hidden="true">→</span></a>
+    <h2>Follow me</h2>
+    <div class="social-links" aria-label="Chris Potter on the web">
+      <a href="https://bsky.app/profile/chrpotr.com">Bluesky</a>
+      <a href="https://github.com/chrpotr">GitHub</a>
+      <a href="https://www.linkedin.com/in/chrpotr/">LinkedIn</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+    <p>{{ site.title | escape }}</p>
   </footer>
 </body>
 </html>

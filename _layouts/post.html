@@ -2,11 +2,17 @@
 layout: default
 ---
 <article class="post">
-  <header class="post-header">
-    <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a>
-    <h1>{{ page.title | escape }}</h1>
-    <div class="post-meta"><span>{{ site.author.name | escape }}</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></div>
-  </header>
-  <div class="prose">{{ content }}</div>
-  <footer class="post-end"><a href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a><a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS <span aria-hidden="true">→</span></a></footer>
+  {% assign post_image = page.image.path | default: page.image %}
+  {% if post_image and post_image != '/assets/images/social-card.png' %}
+  <img class="post-cover" src="{{ post_image | relative_url }}" alt="{{ page.image.alt | default: '' | escape }}" width="1200" height="630">
+  {% endif %}
+  <div class="post-inner">
+    <header class="post-header">
+      <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a>
+      <h1>{{ page.title | escape }}</h1>
+      <div class="post-meta"><span>{{ site.author.name | escape }}</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></div>
+    </header>
+    <div class="prose">{{ content }}</div>
+    <footer class="post-end"><a href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a><a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a></footer>
+  </div>
 </article>

@@ -2,9 +2,6 @@
 layout: default
 ---
 <article class="page">
-  <header class="post-header">
-    <p class="eyebrow"><span class="small-rule" aria-hidden="true"></span>{{ site.title | escape }}</p>
-    <h1>{{ page.title | escape }}<span class="title-dot" aria-hidden="true">.</span></h1>
-  </header>
+  <header class="post-header"><h1>{{ page.title | escape }}</h1></header>
   <div class="prose">{{ content }}</div>
 </article>
