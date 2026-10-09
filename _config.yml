@@ -1,0 +1,16 @@
+title: Chris Potter
+description: Articles by Chris Potter
+url: "https://chrpotr.github.io"
+baseurl: ""
+lang: en
+markdown: kramdown
+permalink: /articles/:title/
+exclude:
+  - README.md
+  - ARTICLE_TEMPLATE.md
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

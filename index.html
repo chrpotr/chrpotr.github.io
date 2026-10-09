@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<section class="intro">
+  <p class="eyebrow">Chris Potter</p>
+  <h1>Articles</h1>
+</section>
+{% if site.posts.size > 0 %}
+<div class="article-list">
+  {% for post in site.posts %}
+  <article class="article-preview">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+    {% if post.excerpt %}<div class="summary">{{ post.excerpt | markdownify }}</div>{% endif %}
+    <a class="read-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty-state">No articles published yet.</p>
+{% endif %}
